@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Lavar Louça - Upgrade e Emojis Barbados!</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Degradê de cores quentes */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #fff;
+            text-shadow: 0px 4px 15px rgba(255, 0, 255, 0.7), 0px 0px 25px rgba(0, 255, 255, 0.8);
+            margin-top: 50px;
+            animation: piscando 1s infinite alternate; /* Efeito piscante */
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .dish {
+            width: 120px;
+            height: 120px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0px 4px 20px rgba(0, 0, 255, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-color: #f1c40f;
+        }
+
+        .dish img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Brilho nos pratos */
+        .dish.lavada {
+            background-color: #8e44ad;
+            box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.6);
+            transform: scale(1.1);
+        }
+
+        /* Texto de pontuação e upgrades */
+        .score, .upgrade {
+            font-size: 1.5em;
+            color: #ffeb3b;
+            text-shadow: 0px 4px 10px rgba(255, 0, 0, 0.6);
+            margin-top: 30px;
+        }
+
+        /* Efeito de brilho na pontuação */
+        .score span {
+            font-size: 2.5em;
+            color: #ff6347;
+            text-shadow: 0px 4px 25px rgba(255, 165, 0, 0.7);
+        }
+
+        /* Emojis de homens barbados como inimigos */
+        .enemy {
+            font-size: 3em;
+            position: absolute;
+            bottom: 10%;
+            animation: moveEnemy 5s linear infinite;
+        }
+
+        /* Movimento dos inimigos */
+        @keyframes moveEnemy {
+            0% { left: 0; transform: rotate(0deg); }
+            50% { left: 50%; transform: rotate(360deg); }
+            100% { left: 100%; transform: rotate(0deg); }
+        }
+
+        /* Animação piscando no título */
+        @keyframes piscando {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .dish:hover {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.7);
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>🚨 LAVAR LOUÇA: O JOGO CARIOTA! 🏖️</h1>
+
+    <div class="game-container">
+        <div class="dish" id="dish1">
+            <img src="https://via.placeholder.com/120/ff6347/fff?text=Prato1" alt="Prato 1">
+        </div>
+        <div class="dish" id="dish2">
+            <img src="https://via.placeholder.com/120/ff6347/fff?text=Prato2" alt="Prato 2">
+        </div>
+        <div class="dish" id="dish3">
+            <img src="https://via.placeholder.com/120/ff6347/fff?text=Prato3" alt="Prato 3">
+        </div>
+        <div class="dish" id="dish4">
+            <img src="https://via.placeholder.com/120/ff6347/fff?text=Prato4" alt="Prato 4">
+        </div>
+        <div class="dish" id="dish5">
+            <img src="https://via.placeholder.com/120/ff6347/fff?text=Prato5" alt="Prato 5">
+        </div>
+    </div>
+
+    <div class="score">
+        <p>Pratos Lavados: <span id="score">0</span></p>
+    </div>
+
+    <div class="upgrade">
+        <p><strong>Upgrade disponível!</strong> Clique para aumentar a velocidade de lavagem.</p>
+        <button id="upgradeButton">Upgrade: +1 Velocidade (10 pontos)</button>
+    </div>
+
+    <!-- Inimigos Emojis -->
+    <div class="enemy" id="enemy1">🎅</div>
+    <div class="enemy" id="enemy2">👨‍🦰</div>
+    <div class="enemy" id="enemy3">👨‍🦱</div>
+
+    <script>
+        let score = 0;
+        let speedUpgrade = 1; // A velocidade do jogo vai aumentar conforme o upgrade
+        const scoreElement = document.getElementById('score');
+        const upgradeButton = document.getElementById('upgradeButton');
+        const dishes = document.querySelectorAll('.dish');
+        const enemies = document.querySelectorAll('.enemy');
+        
+        // Função para marcar os pratos como lavados
+        dishes.forEach(dish => {
+            dish.addEventListener('click', function() {
+                if (!dish.classList.contains('lavada')) {
+                    dish.classList.add('lavada');
+                    score++;
+                    scoreElement.textContent = score;
+                    dish.querySelector('img').style.opacity = '0.3';  // Diminui a opacidade para "indicar" que foi lavado
+                    dish.style.cursor = 'not-allowed';  // Muda o cursor para não permitir clicar de novo
+                }
+            });
+        });
+
+        // Função para upgrade de velocidade
+        upgradeButton.addEventListener('click', function() {
+            if (score >= 10) {
+                score -= 10; // Custa 10 pontos para o upgrade
+                speedUpgrade++;
+                scoreElement.textContent = score;
+                alert(`Velocidade aumentada para ${speedUpgrade}!`);
+            } else {
+                alert('Você precisa de 10 pontos para o upgrade!');
+            }
+        });
+
+        // Função de movimento dos inimigos (emojis de homens barbados)
+        function moveEnemies() {
+            enemies.forEach(enemy => {
+                let leftPosition = Math.random() * 100;  // Gera uma posição aleatória para o inimigo
+                enemy.style.left = `${leftPosition}%`;  // Coloca o inimigo na posição
+                enemy.style.animationDuration = `${(Math.random() * 5 + 5)}s`; // Duração aleatória para o movimento
+            });
+        }
+
+        // Movimento dos inimigos
+        setInterval(moveEnemies, 1000);
+    </script>
+
+</body>
+</html>

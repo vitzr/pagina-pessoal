@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Irado! Pisca, Brilha e Toca Música!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #F39C12;
+            text-shadow: 0 0 20px #FF6347, 0 0 30px #FF6347, 0 0 40px #FF6347;
+            animation: piscar 1s infinite alternate;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #32CD32;
+            text-shadow: 0 0 20px #32CD32, 0 0 30px #32CD32;
+            animation: brilhar 2s infinite alternate;
+        }
+
+        .brilho {
+            font-size: 2em;
+            color: #FFD700;
+            text-shadow: 0 0 15px #FFD700, 0 0 25px #FFD700, 0 0 35px #FFD700;
+        }
+
+        @keyframes piscar {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        @keyframes brilhar {
+            0% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 1.2em;
+            color: #FFF;
+            background-color: #000;
+            padding: 15px;
+            text-shadow: 0 0 10px #FFD700;
+        }
+
+        audio {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎉 Bem-vindo ao Site Irado! 🎉</h1>
+        <p>Esse site é puro brilho! 🌟 Aqui, tudo vai brilhar e você vai se divertir! 💥</p>
+        <div class="brilho">✨ Pisque, brilhe e dance ao som da música! ✨</div>
+    </div>
+ <img src="src="https://www.google.com/imgres?q=pedrinho%20matador&imgurl=https%3A%2F%2Fwww.cnnbrasil.com.br%2Fwp-content%2Fuploads%2Fsites%2F12%2F2023%2F03%2Fpedrinho_podcast.png%3Fw%3D1200%26h%3D675%26crop%3D1&imgrefurl=https%3A%2F%2Fwww.cnnbrasil.com.br%2Fnacional%2Fpedrinho-matador-foi-morto-a-tiros-e-depois-degolado-diz-policia%2F&docid=ociAR0QAI2RH6M&tbnid=xZQ27iev114CiM&vet=12ahUKEwjQiaDsstmJAxVXIrkGHdZMLzYQM3oECGIQAA..i&w=673&h=354&hcb=2&ved=2ahUKEwjQiaDsstmJAxVXIrkGHdZMLzYQM3oECGIQAA">
+
+    <footer>
+        <p>&copy; 2024, O Site Mais Irado da Web! 🔥</p>
+    </footer>
+
+    <!-- Música de fundo -->
+    <audio controls autoplay loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Seu navegador não suporta o áudio.
+    </audio>
+
+</body>
+</html>

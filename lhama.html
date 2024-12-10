@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Rosa de Alpacas 🦙💖</title>
+    <style>
+        /* Estilos do corpo da página */
+        body {
+            background-color: #f8c8e4; /* Fundo rosa clarinho */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #6c4f81; /* Cor roxinha para o texto */
+        }
+
+        /* Título */
+        h1 {
+            font-size: 3.5em;
+            color: #ff66b2;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.8);
+            animation: bounce 1s infinite alternate; /* Animação do título */
+        }
+
+        /* Estilo do container com alpacas */
+        .alpaca-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        /* Cada alpaca */
+        .alpaca {
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Imagem da alpaca */
+        .alpaca img {
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Efeito de hover nas alpacas */
+        .alpaca:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(255, 105, 180, 0.6); /* Brilho suave ao passar o mouse */
+        }
+
+        /* Efeito de animação do título */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Descrição do site */
+        .description {
+            font-size: 1.3em;
+            color: #7d4b7c;
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Animação de fade-in nos textos */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Botão fofo de interação */
+        .button {
+            background-color: #ff66b2;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+            margin-top: 40px;
+        }
+
+        /* Efeito de hover no botão */
+        .button:hover {
+            background-color: #ff3385;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="fade-in">Bem-vindo ao Mundo Rosa das Alpacas! 🦙💖</h1>
+
+    <div class="description fade-in">
+        <p>
+            Aqui é o lugar mais fofo da internet, onde as alpacas reinam no seu esplendor rosado! 🌸
+            Explore o universo encantado dessas criaturas maravilhosas, com um toque de amor e fofura!
+            Clique nas alpacas para conhecê-las melhor e se apaixonar mais a cada instante. 💕
+        </p>
+    </div>
+
+    <div class="alpaca-container">
+        <div class="alpaca">
+            <img src="https://via.placeholder.com/200/ffb3d9/fff?text=Alpaca+1" alt="Alpaca 1">
+        </div>
+        <div class="alpaca">
+            <img src="https://via.placeholder.com/200/ffb3d9/fff?text=Alpaca+2" alt="Alpaca 2">
+        </div>
+        <div class="alpaca">
+            <img src="https://via.placeholder.com/200/ffb3d9/fff?text=Alpaca+3" alt="Alpaca 3">
+        </div>
+        <div class="alpaca">
+            <img src="https://via.placeholder.com/200/ffb3d9/fff?text=Alpaca+4" alt="Alpaca 4">
+        </div>
+    </div>
+
+    <button class="button fade-in">Explore Mais Alpacas</button>
+
+</body>
+</html>
